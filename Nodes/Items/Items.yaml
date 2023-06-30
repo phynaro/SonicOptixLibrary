@@ -1,0 +1,128 @@
+Name: Items
+Type: FolderType
+Children:
+- Name: ConvertHz
+  Type: ObjectLibraryItem
+  Children:
+  - Name: ConvertHz
+    Id: g=5669ab96a67713b462bdb2b4f71745b5
+    Supertype: ExpressionEvaluator
+    ReferenceType: HasComponent
+    Children:
+    - Name: Expression
+      Type: BaseDataVariableType
+      DataType: String
+      ReferenceType: HasParameter
+      Value: "{0}/100"
+    - Name: ns=2;Source0
+      Type: BaseDataVariableType
+      DataType: BaseDataType
+      ReferenceType: HasSource
+      Children:
+      - Name: DynamicLink
+        Type: DynamicLink
+        DataType: NodePath
+        Value: ""
+- Name: MotorFaultCode
+  Type: ObjectLibraryItem
+  Children:
+  - Name: MotorFaultCode
+    Id: g=6ec17b61f6c6c5d571f6c76f4a158a5c
+    Supertype: ValueMapConverter
+    ReferenceType: HasComponent
+    Children:
+    - Name: Pairs
+      Type: BaseObjectType
+      ModellingRule: None
+      Children:
+      - Name: Pair
+        Type: ValueMapPair
+        ModellingRule: None
+        Children:
+        - Name: Key
+          Type: BaseDataVariableType
+          DataType: UInt32
+          ModellingRule: None
+          Value: 1
+        - Name: Value
+          Type: BaseDataVariableType
+          DataType: String
+          ModellingRule: None
+          Value: "Undervoltage"
+      - Name: Pair1
+        Type: ValueMapPair
+        ModellingRule: None
+        Children:
+        - Name: Key
+          Type: BaseDataVariableType
+          DataType: UInt32
+          ModellingRule: None
+          Value: 2
+        - Name: Value
+          Type: BaseDataVariableType
+          DataType: String
+          ModellingRule: None
+          Value: "Motor Overload"
+      - Name: Pair2
+        Type: ValueMapPair
+        ModellingRule: None
+        Children:
+        - Name: Key
+          Type: BaseDataVariableType
+          DataType: UInt32
+          ModellingRule: None
+          Value: 3
+        - Name: Value
+          Type: BaseDataVariableType
+          DataType: String
+          ModellingRule: None
+          Value: "Communication Lost"
+- Name: MotorStatusColor
+  Type: ObjectLibraryItem
+  Children:
+  - Name: MotorStatusColor
+    Id: g=a15d755389f6e3c68aa677c5d7d381c2
+    Supertype: ConditionalConverter
+    ReferenceType: HasComponent
+    Children:
+    - Name: Condition
+      Type: BaseDataVariableType
+      DataType: Boolean
+      ReferenceType: HasSource
+      Value: false
+    - Name: TrueValue
+      Type: BaseDataVariableType
+      DataType: Color
+      ReferenceType: HasParameter
+      Value: "#33ea0b"
+    - Name: FalseValue
+      Type: BaseDataVariableType
+      DataType: Color
+      ReferenceType: HasParameter
+      ModellingRule: Optional
+      Value: "#b2b2b2"
+- Name: MotorStatusText
+  Type: ObjectLibraryItem
+  Children:
+  - Name: MotorStatusText
+    Id: g=e3a41cad6a7be30980b57c04c502da28
+    Supertype: ConditionalConverter
+    ReferenceType: HasComponent
+    Children:
+    - Name: Condition
+      Type: BaseDataVariableType
+      DataType: Boolean
+      ReferenceType: HasSource
+      Value: false
+    - Name: TrueValue
+      Type: BaseDataVariableType
+      DataType: String
+      ReferenceType: HasParameter
+      ModellingRule: Optional
+      Value: "Running"
+    - Name: FalseValue
+      Type: BaseDataVariableType
+      DataType: String
+      ReferenceType: HasParameter
+      ModellingRule: Optional
+      Value: "Stopped"
